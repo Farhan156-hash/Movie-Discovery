@@ -1,19 +1,12 @@
 import { useState } from 'react'
 import MovieCard from './components/MovieCard'
+import Home from './pages/Home'
 
 function App() {
 
   return (
     <>
-    <MovieCard movie={{
-      title: "movie1",
-      release_date: "2025",
-    }}/>
-
-    <MovieCard movie={{
-      title: "movie2",
-      release_date: "2020",
-    }}/>
+      <Home />
     </>
   )
 }
