@@ -1,5 +1,6 @@
 import MovieCard from '../components/MovieCard'
 import { useState } from 'react'
+import "../css/Home.css"
 
 function Home() {
 
@@ -27,7 +28,7 @@ function Home() {
 				<button className='search-button'>Search</button>
 			</form>
 
-			<div className="movie-grid">
+			<div className="movies-grid">
 				{movies.map((movie) => {
 					return (
 						<MovieCard movie={movie} key={movie.id} />

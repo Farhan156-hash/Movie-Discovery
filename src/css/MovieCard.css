@@ -1,0 +1,191 @@
+.movie-card {
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #181818;
+  border-radius: 18px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.movie-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+}
+
+/* ---------------- Poster ---------------- */
+
+.movie-poster {
+  position: relative;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+}
+
+.movie-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  transition: transform 0.45s ease;
+}
+
+.movie-card:hover .movie-poster img {
+  transform: scale(1.08);
+}
+
+/* ---------------- Overlay ---------------- */
+
+.movie-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.92),
+    rgba(0, 0, 0, 0.25),
+    rgba(0, 0, 0, 0)
+  );
+
+  opacity: 0;
+
+  transition: opacity 0.35s ease;
+}
+
+.movie-card:hover .movie-overlay {
+  opacity: 1;
+}
+
+/* ---------------- Favorite Button ---------------- */
+
+.favorite-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+
+  color: white;
+  font-size: 1.5rem;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.favorite-btn:hover {
+  background: #e50914;
+  transform: scale(1.12);
+}
+
+.favorite-btn.active {
+  background: #e50914;
+  color: white;
+  box-shadow: 0 0 20px rgba(229, 9, 20, 0.45);
+}
+
+/* ---------------- Movie Info ---------------- */
+
+.movie-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  padding: 1rem 1.1rem 1.3rem;
+
+  flex: 1;
+}
+
+.movie-info h3 {
+  color: white;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+
+  line-clamp: 2;
+
+  overflow: hidden;
+}
+
+.movie-info p {
+  color: #a8a8a8;
+  font-size: 0.95rem;
+}
+
+/* ---------------- Rating Badge ---------------- */
+
+.rating {
+  width: fit-content;
+
+  padding: 0.35rem 0.75rem;
+
+  border-radius: 999px;
+
+  background: #f5c518;
+  color: black;
+
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+/* ---------------- Optional User Rating ---------------- */
+
+.user-rating {
+  margin-top: auto;
+
+  color: #ffd54f;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* ---------------- Responsive ---------------- */
+
+@media (max-width: 768px) {
+  .movie-card {
+    border-radius: 14px;
+  }
+
+  .movie-info {
+    padding: 0.9rem;
+  }
+
+  .movie-info h3 {
+    font-size: 1rem;
+  }
+
+  .favorite-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .movie-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .movie-info h3 {
+    font-size: 0.95rem;
+  }
+
+  .movie-info p {
+    font-size: 0.85rem;
+  }
+}
